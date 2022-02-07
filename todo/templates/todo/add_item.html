@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <h1>Add a to do Item</h1>
-    <form method="POST" action="{% url 'add' %}">
+    <h1>Add a to do Item:</h1>
+    <form method="POST" action="add">
         {% csrf_token %}
 
         <div>

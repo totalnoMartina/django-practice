@@ -12,12 +12,13 @@
     <h1>Things I Want To Do</h1>
 
     <table>
-        {% for item1 in items %}
+        {% for item in items %}
+        {{ item.done_status }}
         <tr>
-            {% if item.done %}
-            <td><del>{{ item1.name }}</del></td>
+            {% if item.done_status %}
+            <td><del>{{ item.name }}</del></td>
             {% else %}
-            <td>{{ item1.name }}</td>
+            <td>{{ item.name }}</td>
             {% endif %}
         </tr>
         {% empty %}
