@@ -12,24 +12,11 @@
     <h1>Add a to do Item:</h1>
     <form method="POST" action='{% url "add" %}'>
         {% csrf_token %}
-
-        <div>
-            <p>
-                <label for="id_name">Name:</label>
-                <input type="text" id="id_name" name="item_name">
-            </p>
-        </div>
-        <div>
-            <p>
-                <label for="id_done">Done</label>
-                <input type="checkbox" id="id_done" name="done">
-            </p>
-        </div>
-        <div>
-            <p>
-                <button type="submit">Add an Item
-                </button>
-            </p>
+        {{ form }}
+        <p>
+            <button type="submit">Add an Item
+            </button>
+        </p>
         </div>
 
 
