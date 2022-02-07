@@ -12,6 +12,7 @@
     <h1>Add a to do Item</h1>
     <form method="POST" action="{% url 'add' %}">
         {% csrf_token %}
+
         <div>
             <p>
                 <label for="id_name">Name:</label>
