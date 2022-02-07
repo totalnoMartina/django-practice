@@ -14,7 +14,6 @@ class TestItemForm(TestCase):
         form = ItemForm({'name': 'Test to-do item'})
         self.assertTrue(form.is_valid())
 
-
     def tests_are_explicit_in_form_metaclass(self):
         form = ItemForm()
         self.assertEqual(form.Meta.fields, ['name', 'done_status'])
