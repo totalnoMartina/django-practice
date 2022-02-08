@@ -91,7 +91,7 @@ if development:
     }
 else:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        'default': dj_database_url.parse('postgres://bezovroyorvycg:db5b71f95f656839b267ffe9a1a800222d4a76edbe7e036a46082648fb635364@ec2-3-91-128-147.compute-1.amazonaws.com:5432/ddpnr4or0fnm7u')
     }
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
