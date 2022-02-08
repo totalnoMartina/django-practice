@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 import dj_database_url
 
@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5gkn+q22u=afdy0zc*yc^1gn0bco81mvaw8$gp+%91rp_*fm-%'
+SECRET_KEY = os.environ.get( 'SECRET_KEY', 'django-insecure-5gkn+q22u=afdy0zc*yc^1gn0bco81mvaw8$gp+%91rp_*fm-%')
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: don't run with debug turned on in production! // 'django-project-martina.herokuapp.com',
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-project-martina.herokuapp.com']
+ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 
 # Application definition
@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.parse('postgres://bezovroyorvycg:db5b71f95f656839b267ffe9a1a800222d4a76edbe7e036a46082648fb635364@ec2-3-91-128-147.compute-1.amazonaws.com:5432/ddpnr4or0fnm7u')
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 # Password validation
