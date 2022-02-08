@@ -28,16 +28,26 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production! 
-Debug = development
-
-if development:
-    ALLOWED_HOSTS = ['localhost']
+# Debug = development
+if os.environ.get("DEVELOPMENT"):
+    development = True
 else:
-    ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
+    development = False
+DEBUG = development 
+# Code taken from Slack - igor idea - works
+
+# if development:
+#     ALLOWED_HOSTS = ['localhost']
+# else:
+#     ALLOWED_HOSTS = ['django-project-martina.herokuapp.com']
+# if development:
+#     ALLOWED_HOSTS = ['localhost']
+# else:
+#     ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 # ALLOWED_HOSTS = ['django-project-martina.herokuapp.com']
 
-
+ALLOWED_HOSTS = ['*', os.environ.get('HEROKU_HOSTNAME')]
 # Application definition
 
 INSTALLED_APPS = [
@@ -98,7 +108,7 @@ else:
     DATABASES = {
         'default': dj_database_url.parse('postgres://bezovroyorvycg:db5b71f95f656839b267ffe9a1a800222d4a76edbe7e036a46082648fb635364@ec2-3-91-128-147.compute-1.amazonaws.com:5432/ddpnr4or0fnm7u')
                 }
-                
+
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
